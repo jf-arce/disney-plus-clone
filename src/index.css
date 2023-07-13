@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: avenir-black;
+    src: url(/public/assets/fonts/avenir/AvenirLTStd-Black.otf) format('truetype');
+}
+@font-face {
+    font-family: avenir-book;
+    src: url(/public/assets/fonts/avenir/AvenirLTStd-Book.otf) format('truetype');
+}
+@font-face {
+    font-family: avenir-roman;
+    src: url(/public/assets/fonts/avenir/AvenirLTStd-Roman.otf) format('truetype');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: avenir-roman, sans-serif;
+}
+
+body{
+    background: linear-gradient(#06070A,#1E222F);
+}

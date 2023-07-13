@@ -1,0 +1,15 @@
+.menu-animation{
+    animation: menu-animation 200ms ease;
+    transform-origin: top;
+}
+
+@keyframes menu-animation {
+    0%{
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    100%{
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}

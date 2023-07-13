@@ -1,0 +1,22 @@
+.card-show-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.card-show-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 3px solid transparent;
+    border-radius: 1rem;
+    opacity: 0;
+    transition: opacity 100ms linear, border 150ms linear;
+}
+
+.card-show-container:hover::after {
+    opacity: 1;
+    border-color: #d6d6d6cf;
+}

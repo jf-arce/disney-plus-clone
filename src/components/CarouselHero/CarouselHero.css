@@ -1,0 +1,76 @@
+.arrow{
+    color: rgb(255, 255, 255);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 50;
+    font-size: 35px;
+    cursor: pointer;
+    opacity: 0;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.arrow:hover{
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.slick-slide[aria-hidden="true"] {
+    opacity: 0.5;
+}
+
+.slide-item {
+    position: relative;
+    margin: 10px;
+}
+
+.slide-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 4px solid transparent;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 150ms linear, border 150ms linear;
+}
+
+.slide-item:hover::after {
+    opacity: 1;
+    border-color: #d6d6d6cf;
+}
+
+.animate-fade-right {
+    animation: animate-fade-right 500ms linear forwards;
+}
+@keyframes animate-fade-right {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 500ms linear forwards;
+    animation-delay: 800ms;
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+  
+  
