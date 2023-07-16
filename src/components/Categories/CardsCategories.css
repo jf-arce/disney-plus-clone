@@ -18,5 +18,5 @@
 
 .card-show-container:hover::after {
     opacity: 1;
-    border-color: #d6d6d6cf;
+    border-color: #e5e5e5;
 }

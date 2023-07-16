@@ -68,7 +68,7 @@ export const CarouselHero = () => {
 
 function SlideItem({ slide, active, slideTitle, alt, text }) {
   return (
-    <div className="slide-item focus:outline-none shadow-xl shadow-black">
+    <div className="slide-item focus:outline-none shadow-lg shadow-black my-[20px]">
       <Link>
         <img src={slide} alt="slide" className="rounded-[4px] w-full"/>
         <div className={`absolute top-0 z-20 flex flex-col`}>
