@@ -1,22 +1,8 @@
-import { useEffect, useState } from "react";
-import { getDataList } from "../../api/getData";
 import { CardsMovies } from "../Cards/CardsMovies";
 import Slider from "react-slick";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-
-
-export const CarouselMovies = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = getDataList();
-
-    fetchData.then((data) => {
-      setData(data.results);
-    });
-
-  }, []);
+export const CarouselMovies = ({data,children}) => {
 
   data.forEach((movie) => {
     console.log(movie);
@@ -34,7 +20,7 @@ export const CarouselMovies = () => {
     initialSlide: 0,
     speed: 400,
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     focusOnSelect: true,
@@ -43,13 +29,7 @@ export const CarouselMovies = () => {
     <div>
       <h4 className="text-white ml-[90px] font-bold text-xl">Recomendaciones para ti</h4>
       <Slider {...settings}>
-        {data.map((movie) => 
-          <CardsMovies 
-            key={movie.id}
-            img={movie.backdrop_path}
-            title={movie.title} 
-          />
-        )}
+        {children}
       </Slider>
     </div>
   );

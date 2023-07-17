@@ -6,32 +6,36 @@ const options = {
     }
 };
 
-export async function getData(){
-    const apiUrl = 'https://api.themoviedb.org/3/authentication'
-    const response = await fetch(apiUrl,options)
-    const data = await response.json();
+const API_KEY = 'c53acaa36347fb555c1c84c70b4a1e4c';
 
-    return data
+export async function getMovies(companie){
+    try{
+        const apiUrl = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_companies=${companie}`
+        const response = await fetch(apiUrl,options)
+        const data = await response.json();
+        return data
+    }catch(error){
+        console.log('Error al obtener las películas');
+    }   
 }
 
-const API_KEY = 'c53acaa36347fb555c1c84c70b4a1e4c'
-
-//MARVEL
-// export async function getDataList(){
-//     const apiUrl = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_companies=420'
-//     const response = await fetch(apiUrl,options)
-//     const data = await response.json();
-
-//     return data
-// }
-
-
-
-//PIXAR
-export async function getDataList(){
-    const apiUrl = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_companies=3'
-    const response = await fetch(apiUrl,options)
-    const data = await response.json();
-
-    return data
+export async function getPixarMovies(){
+    return await getMovies("3")
 }
+export async function getMarvelMovies(){
+    return await getMovies("420")
+}
+
+export async function getDisneyMovies() {
+    try {
+      const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_companies=2,3&with_genres=16`;
+      const response = await fetch(url);
+      const data = await response.json();
+      return data
+
+    } catch (error) {
+      console.error('Error al obtener las películas de Disney:', error.message);
+    }
+  }
+
+

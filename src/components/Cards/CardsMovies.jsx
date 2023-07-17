@@ -1,6 +1,5 @@
 import './CardsMovies.css';
 
-
 export const CardsMovies = ({img,title}) => {
   return (
     <div className="card-movie-container hover:scale-[1.05] 
