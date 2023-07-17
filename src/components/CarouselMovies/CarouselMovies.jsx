@@ -2,11 +2,11 @@ import { CardsMovies } from "../Cards/CardsMovies";
 import Slider from "react-slick";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-export const CarouselMovies = ({data,children}) => {
+export const CarouselMovies = ({data,children,title}) => {
 
-  data.forEach((movie) => {
-    console.log(movie);
-  });
+  // data.forEach((movie) => {
+  //   console.log(movie);
+  // });
 
   console.log(data.length);
   if (data.length == 0) {
@@ -27,7 +27,7 @@ export const CarouselMovies = ({data,children}) => {
   };
   return (
     <div>
-      <h4 className="text-white ml-[90px] font-bold text-xl">Recomendaciones para ti</h4>
+      <h4 className="text-white ml-[90px] font-bold text-xl">{title}</h4>
       <Slider {...settings}>
         {children}
       </Slider>

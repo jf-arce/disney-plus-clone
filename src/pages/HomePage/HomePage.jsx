@@ -4,28 +4,30 @@ import "slick-carousel/slick/slick-theme.css";
 import { Categories } from "../../components/Categories/Categories";
 import { CarouselMovies } from "../../components/CarouselMovies/CarouselMovies";
 import { useEffect, useState } from "react";
-import { getDisneyMovies,getPixarMovies,getMarvelMovies } from "../../api/getData";
+import { getDisneyMovies,getPixarMovies,getMarvelMovies, getDisneyPlusMovies } from "../../api/getData";
 import { CardsMovies } from "../../components/Cards/CardsMovies";
 
 
 export const HomePage = () => {
   const [MoviesDisney, setMoviesDisney] = useState([]);
-  const [MoviesPixar, setDataMoviesPixar] = useState([]);
-  const [MoviesMarvel, setDataMoviesMarvel] = useState([]);
+  const [MoviesPixar, setMoviesPixar] = useState([]);
+  const [MoviesMarvel, setMoviesMarvel] = useState([]);
+  const [MoviesDisneyPlus, setMoviesDisneyPlus] = useState([]);
 
   useEffect(() => {
-    const dataDiney= getDisneyMovies();
-    const dataPixar = getPixarMovies();
-    const dataMarvel = getMarvelMovies();
-
-    dataDiney.then((data) => {
+    
+    getDisneyMovies().then((data) => {
       setMoviesDisney(data.results);
     });
-    dataPixar.then((data) => {
-      setDataMoviesPixar(data.results);
+    getPixarMovies().then((data) => {
+      setMoviesPixar(data.results);
     });
-    dataMarvel.then((data) => {
-      setDataMoviesMarvel(data.results);
+    getMarvelMovies().then((data) => {
+      setMoviesMarvel(data.results);
+    });
+    getDisneyPlusMovies().then((data) => {
+      setMoviesDisneyPlus(data.results);
+      console.log(MoviesDisneyPlus);
     });
 
   }, []);
@@ -35,7 +37,7 @@ export const HomePage = () => {
       <CarouselHero/>
       <Categories/>
       <section className="movies-container mt-6">
-        <CarouselMovies data={MoviesDisney}>
+        <CarouselMovies data={MoviesDisney} title="Recomendaciones para ti">
           {MoviesDisney.map((movie) => 
             <CardsMovies 
               key={movie.id}
@@ -44,7 +46,7 @@ export const HomePage = () => {
             />
           )}
         </CarouselMovies>
-        <CarouselMovies data={MoviesMarvel}>
+        <CarouselMovies data={MoviesMarvel} title="Novedades en Disney+">
           {MoviesMarvel.map((movie) => 
             <CardsMovies 
               key={movie.id}
@@ -53,7 +55,7 @@ export const HomePage = () => {
             />
           )}
         </CarouselMovies>
-        <CarouselMovies data={MoviesPixar}>
+        <CarouselMovies data={MoviesPixar} text="Peliculas iconicas">
           {MoviesPixar.map((movie) => 
             <CardsMovies 
               key={movie.id}
