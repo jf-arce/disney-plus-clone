@@ -40,13 +40,13 @@ export async function getDisneyMovies() {
 
 //Peliculas disney plus
 
-export async function getDisneyPlusMovies(){
-  try{
-      const apiUrl = `https://www.themoviedb.org/3/network/2739-disney`
-      const response = await fetch(apiUrl,options)
-      const data = await response.json();
-      return data
-  }catch(error){
-      console.log('Error al obtener las películas de disney plus');
-  }   
-}
+// export async function getDisneyPlusMovies(){
+//   try{
+//       const apiUrl = `https://www.themoviedb.org/3/network/disney+`
+//       const response = await fetch(apiUrl,options)
+//       const data = await response.json();
+//       return data
+//   }catch(error){
+//       console.log('Error al obtener las películas de disney plus');
+//   }   
+// }

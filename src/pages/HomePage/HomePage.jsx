@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Categories } from "../../components/Categories/Categories";
 import { CarouselMovies } from "../../components/CarouselMovies/CarouselMovies";
 import { useEffect, useState } from "react";
-import { getDisneyMovies,getPixarMovies,getMarvelMovies, getDisneyPlusMovies } from "../../api/getData";
+import { getDisneyMovies,getPixarMovies,getMarvelMovies } from "../../api/getData";
 import { CardsMovies } from "../../components/Cards/CardsMovies";
 
 
@@ -12,10 +12,9 @@ export const HomePage = () => {
   const [MoviesDisney, setMoviesDisney] = useState([]);
   const [MoviesPixar, setMoviesPixar] = useState([]);
   const [MoviesMarvel, setMoviesMarvel] = useState([]);
-  const [MoviesDisneyPlus, setMoviesDisneyPlus] = useState([]);
 
   useEffect(() => {
-    
+
     getDisneyMovies().then((data) => {
       setMoviesDisney(data.results);
     });
@@ -25,11 +24,6 @@ export const HomePage = () => {
     getMarvelMovies().then((data) => {
       setMoviesMarvel(data.results);
     });
-    getDisneyPlusMovies().then((data) => {
-      setMoviesDisneyPlus(data.results);
-      console.log(MoviesDisneyPlus);
-    });
-
   }, []);
 
   return (

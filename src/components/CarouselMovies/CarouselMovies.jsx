@@ -8,7 +8,6 @@ export const CarouselMovies = ({data,children,title}) => {
   //   console.log(movie);
   // });
 
-  console.log(data.length);
   if (data.length == 0) {
       return <div>Cargando datos...</div>;
   }

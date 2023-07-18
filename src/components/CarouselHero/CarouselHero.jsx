@@ -45,7 +45,7 @@ export const CarouselHero = () => {
           active={active}
           slideTitle="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/5243B8071ABDDE0F25CE3CEA72006204D44930D99A60A9BBF5ACBB451733E67C/scale?width=1440&aspectRatio=3.91&format=png"
           alt="cars"
-          text="asdasdasd"
+          text=""
         />
         <SlideItem
           slide="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/70B982FC249A92CE10CB111B4A2019AF3ADADF9C39DCD73FF4F5628877209815/scale?width=1440&aspectRatio=3.91&format=jpeg"
