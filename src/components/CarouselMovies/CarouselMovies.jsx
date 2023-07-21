@@ -4,10 +4,6 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 export const CarouselMovies = ({data,children,title}) => {
 
-  // data.forEach((movie) => {
-  //   console.log(movie);
-  // });
-
   if (data.length == 0) {
       return <div>Cargando datos...</div>;
   }

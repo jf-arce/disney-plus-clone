@@ -14,7 +14,6 @@ export const HomePage = () => {
   const [MoviesMarvel, setMoviesMarvel] = useState([]);
 
   useEffect(() => {
-
     getDisneyMovies().then((data) => {
       setMoviesDisney(data.results);
     });

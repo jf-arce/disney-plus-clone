@@ -4,6 +4,7 @@ import { RiMovie2Fill } from "react-icons/ri";
 import { PiTelevisionSimpleFill } from "react-icons/pi";
 import { UserNav } from "../UserNav/UserNav";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const NavBar = () => {
   const [hoverUser, setHoverUser] = useState(false);
@@ -19,20 +20,17 @@ export const NavBar = () => {
   useEffect(() => {
     const handleScroll = () =>{
       const scrollPositionY = window.scrollY;
-
       scrollPositionY === 0 ? setIsScroll(false) : setIsScroll(true);
-      
-      console.log(isScroll);
     }
     
     window.addEventListener('scroll', handleScroll);
   }, [isScroll]);
     
   return (
-    <header className={`h-20 fixed top-0 w-full z-[100] ${isScroll ? "bg-[#08070a]" : "bg-transparent"}`}>
+    <header className={`h-20 fixed top-0 w-full z-[100] transition-all duration-300 ${isScroll ? "bg-[#08070a]" : "bg-transparent"}`}>
       <div className="h-full px-[36px] flex justify-between">
         <nav className="flex items-center justify-start h-full">
-          <div className="bg-[url('/assets/img/logo.svg')] min-h-[48px] min-w-[79px] bg-no-repeat bg-cover bg-center"></div>
+          <Link to="/" className="bg-[url('/assets/img/logo.svg')] min-h-[48px] min-w-[79px] bg-no-repeat bg-cover bg-center"></Link>
           <ul className="flex text-[#F9F9F9] text-[13px] font-black ml-8">
             <NavSection icon={<AiFillHome className="text-base" />}>
               Inicio

@@ -22,14 +22,14 @@ export const UserNav = ({ hoverUser }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="mt-20 w-[80%] m-auto border-t-[1px] border-[#cacaca23] ">
+      <div className={`mt-20 w-[80%] m-auto border-t-[1px] border-[#cacaca23] opacity-0 ${hoverUser || hoverUserMenu ? "menu-opacity" : "opacity-0"}`}>
         <div className="flex items-center gap-4 pt-4 cursor-pointer">
           <div className="bg-[#99999943] rounded-[100%] p-3 hover:bg-[#99999965] hover:transition-colors">
             <AiOutlinePlus className="text-white text-2xl"/>
           </div>
           <h4 className="text-[15px]">Crear perfil</h4>
         </div>
-        <ul className="flex flex-col gap-4 mt-5 text-[15px]">
+        <ul className={`flex flex-col gap-4 mt-5 text-[15px] `}>
           <li>
             <Link className="hover:text-[#e8e8e8]">Editar perfiles</Link>
           </li>
@@ -47,8 +47,6 @@ export const UserNav = ({ hoverUser }) => {
           </li>
         </ul>
       </div>
-      
-
     </div>
   );
 };

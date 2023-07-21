@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export const Footer = () => {
   return (
-    <footer className="flex justify-center items-center bg-[#0e0b14]">
+    <footer className="flex justify-center items-center bg-[#0e0b14] relative z-[100] mt-10">
         <div className="max-w-[600px] flex flex-col items-center justify-center p-5 gap-3 text-[12px]">
             <div className="bg-[url('/assets/img/logo.svg')] min-h-[48px] min-w-[79px] bg-no-repeat bg-cover bg-center"></div>
             <div>
