@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { getDisneyMovies,getPixarMovies,getMarvelMovies } from "../../api/getData";
 import { CarouselMovies } from "../CarouselMovies/CarouselMovies";
 import { CardsMovies } from "../Cards/CardsMovies";
+import './CategoriePage.css';
 
 export const CategoriePage = () => {
     const { categorie } = useParams();
@@ -10,7 +11,7 @@ export const CategoriePage = () => {
     const [brandCategorie, setbrandCategorie] = useState({});
     const [opacityVideo, setOpacityVideo] = useState({opacity: 1})
     const [opacityImg, setOpacityImg] = useState({opacity: 0})
-    const [opacityScroll, setOpacityScroll] = useState({})
+    const [opacityScroll, setOpacityScroll] = useState(1)
     const videoRef = useRef(null);
     
     const brands = {
@@ -69,23 +70,21 @@ export const CategoriePage = () => {
     }
 
     useEffect(() => {
+        const heightVideo = videoRef.current.clientHeight
+
         const handleOpacityScroll = () => {
             const scrollY = window.scrollY
-            const heightVideo = videoRef.current.clientHeight
+            let opacity = 1 - (scrollY * 1.5 / heightVideo)
+
+            opacity = Math.max(0.2, opacity); // Asegura que el valor no sea menor que 0.2
             console.log("scrolly:", scrollY);
             console.log("HeightVideo:",heightVideo);
-            
-            let opacityScroll = 1 - ((scrollY * 1.1) / heightVideo)
-            opacityScroll = Math.max(0.2, opacityScroll); // Asegura que el valor no sea menor que 0.2
-        
-            console.log("Opacidad:",opacityScroll);
+            console.log("Opacidad:",opacity);
     
-            setOpacityScroll({
-                opacity: opacityScroll,
-                // transition: "opacity 300ms linear"
-            })
+            setOpacityScroll(opacity)
         }
-        window.addEventListener('scroll', handleOpacityScroll)
+        const throttledHandleScroll = throttle(handleOpacityScroll, 100); // Throttle to limit function calls
+        window.addEventListener('scroll', throttledHandleScroll);
 
         return () => {
             window.removeEventListener('scroll', handleOpacityScroll);
@@ -93,9 +92,9 @@ export const CategoriePage = () => {
     },[])
 
   return (
-    <main className="text-white relative">
-        <div className="transition-all duration-300" style={opacityScroll}>
-            <div className="fixed top-0 z-20">
+    <main className="text-white relative bg-[#1a1d29]">
+        <div className="transition-opacity relative" style={{opacity: opacityScroll}}>
+            <div className="fixed top-0 z-20 shadow-inset">
                 <video src={brandCategorie.video} autoPlay playsInline onEnded={handleOpacity} style={opacityVideo} ref={videoRef} type="video/mp4"/>
             </div>
             <div className="fixed top-0 z-10 w-full">
@@ -151,17 +150,18 @@ export const CategoriePage = () => {
                     />
                 )}
             </CarouselMovies>
-            <CarouselMovies data={movies} title="Series">
-                {movies.map((movie) => 
-                    <CardsMovies 
-                        key={movie.id}
-                        img={movie.backdrop_path}
-                        title={movie.title} 
-                    />
-                )}
-            </CarouselMovies>
         </div>
     </main>
   )
 }
 
+function throttle(func, limit) {
+    let inThrottle;
+    return function (...args) {
+      if (!inThrottle) {
+        func.apply(this, args);
+        inThrottle = true;
+        setTimeout(() => (inThrottle = false), limit);
+      }
+    };
+}
