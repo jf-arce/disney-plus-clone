@@ -1,3 +1,10 @@
 .shadow-inset{
     box-shadow: inset 0px 100px 70px -35px rgba(0,0,0,0.75);
 }
+
+.opacity-duration-video{
+    transition: opacity 1s linear 0s;
+}
+.opacity-duration-img{
+    transition: opacity 200ms linear 0s;
+}

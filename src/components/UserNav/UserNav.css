@@ -16,8 +16,8 @@
 
 
 .menu-opacity{
-    animation:  menu-opacity 300ms ease forwards;
-    animation-delay: 250ms;
+    animation: menu-opacity 300ms ease forwards;
+    animation-delay: 300ms;
 }
 
 @keyframes menu-opacity {

@@ -5,8 +5,7 @@ import { Categories } from "../../components/Categories/Categories";
 import { CarouselMovies } from "../../components/CarouselMovies/CarouselMovies";
 import { useEffect, useState } from "react";
 import { getDisneyMovies,getPixarMovies,getMarvelMovies } from "../../api/getData";
-import { CardsMovies } from "../../components/Cards/CardsMovies";
-
+import { useCreateItemsMovies } from "../../hooks/useCreateItemsMovies";
 
 export const HomePage = () => {
   const [MoviesDisney, setMoviesDisney] = useState([]);
@@ -31,31 +30,13 @@ export const HomePage = () => {
       <Categories/>
       <section className="movies-container mt-6">
         <CarouselMovies data={MoviesDisney} title="Recomendaciones para ti">
-          {MoviesDisney.map((movie) => 
-            <CardsMovies 
-              key={movie.id}
-              img={movie.backdrop_path}
-              title={movie.title} 
-            />
-          )}
+          {useCreateItemsMovies(MoviesDisney)}
         </CarouselMovies>
         <CarouselMovies data={MoviesMarvel} title="Novedades en Disney+">
-          {MoviesMarvel.map((movie) => 
-            <CardsMovies 
-              key={movie.id}
-              img={movie.backdrop_path}
-              title={movie.title} 
-            />
-          )}
+          {useCreateItemsMovies(MoviesMarvel)}
         </CarouselMovies>
         <CarouselMovies data={MoviesPixar} text="Peliculas iconicas">
-          {MoviesPixar.map((movie) => 
-            <CardsMovies 
-              key={movie.id}
-              img={movie.poster_path}
-              title={movie.title} 
-            />
-          )}
+          {useCreateItemsMovies(MoviesPixar)}
         </CarouselMovies>
       </section>
     </div>
