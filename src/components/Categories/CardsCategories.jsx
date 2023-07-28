@@ -29,6 +29,7 @@ export const CardsCategories = ({img,video,categorie}) => {
         <video src={video}
           autoPlay 
           loop
+          muted
           className={`absolute top-0 ${hover? 'opacity-100' : 'opacity-0'} rounded-xl w-full h-full`}
         ></video>
       </div>

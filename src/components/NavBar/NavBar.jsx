@@ -4,11 +4,16 @@ import { RiMovie2Fill } from "react-icons/ri";
 import { PiTelevisionSimpleFill } from "react-icons/pi";
 import { UserNav } from "../UserNav/UserNav";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const NavBar = () => {
   const [hoverUser, setHoverUser] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
+  const location = useLocation();
+  
+  useEffect(() => {
+    scrollTo(0,0);
+  }, [location]);
  
   const handleMouseEnter = () => {
     setHoverUser(true);

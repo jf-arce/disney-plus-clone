@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export const CarouselHero = () => {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState(true);
 
   const settings = {
     centerMode: true,

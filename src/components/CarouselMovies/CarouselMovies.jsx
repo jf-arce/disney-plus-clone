@@ -18,7 +18,6 @@ export const CarouselMovies = ({data,children,title}) => {
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    focusOnSelect: true,
     responsive: [
       {
         breakpoint: 1024,

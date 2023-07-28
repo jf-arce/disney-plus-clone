@@ -10,6 +10,9 @@ import {
 import { CarouselMovies } from "../CarouselMovies/CarouselMovies";
 import "./CategoriePage.css";
 import { useCreateItemsMovies } from "../../hooks/useCreateItemsMovies";
+import { useHandleOpacity } from "../../hooks/useHandleOpacity";
+import { useLoaderContext } from "../../context/LoaderContext";
+import { Loader } from "../Loader/Loader";
 
 export const CategoriePage = () => {
   const { categorie } = useParams();
@@ -17,7 +20,8 @@ export const CategoriePage = () => {
   const [brandCategorie, setbrandCategorie] = useState({});
   const videoRef = useRef(null);
   const imgRef = useRef(null);
-  const [opacity, setOpacity] = useState(1);
+  const opacity = useHandleOpacity(imgRef,videoRef);
+  const { loadingStatus, isLoading } = useLoaderContext();
 
   const brands = {
     disney: {
@@ -73,9 +77,14 @@ export const CategoriePage = () => {
   useEffect(() => {
     const { getMovies, brand } = categoryMap[categorie] || {};
     if (getMovies && brand) {
+      loadingStatus(true)
       getMovies().then((data) => {
         setMovies(data.results || []);
         setbrandCategorie(brand);
+      }).catch((e) => {
+        console.log(e);
+      }).finally(() => {
+        loadingStatus(false)
       });
     } else {
       console.log("NO EXISTE LA CATEGORIA");
@@ -84,32 +93,12 @@ export const CategoriePage = () => {
 
   const itemsMovies = useCreateItemsMovies(movies);
 
-  const handleOpacity = () => {
+  const handleOpacityTransition = () => {
     videoRef.current.style.opacity = 0;
     imgRef.current.style.opacity = opacity;
   };
 
-  useEffect(() => {
-    const handleOpacityScroll = () => {
-      const heightVideo = imgRef.current.clientHeight;
-      const scrollY = window.scrollY;
-      const opacityCalc = Math.max(0.2, 1 - (scrollY * 2.3) / heightVideo); // Asegura que el valor no sea menor que 0.2
-      setOpacity(opacityCalc);
-
-      if (videoRef.current.style.opacity != 0) {
-        videoRef.current.style.opacity = opacity;
-      }
-      if (imgRef.current.style.opacity != 0) {
-        imgRef.current.style.opacity = opacity;
-      }
-    };
-
-    window.addEventListener("scroll", handleOpacityScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleOpacityScroll);
-    };
-  }, [opacity]);
+  if (isLoading) return <Loader/>;
 
   return (
     <main className="text-white relative">
@@ -118,8 +107,9 @@ export const CategoriePage = () => {
           <video
             src={brandCategorie.video}
             autoPlay
+            muted
             playsInline
-            onEnded={handleOpacity}
+            onEnded={handleOpacityTransition}
             ref={videoRef}
             type="video/mp4"
             className="opacity-duration-video"

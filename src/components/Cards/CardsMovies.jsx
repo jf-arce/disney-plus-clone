@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import './CardsMovies.css';
 
-export const CardsMovies = ({img,title}) => {
+export const CardsMovies = ({img,title, movieId}) => {
   return (
-    <div className="card-movie-container hover:scale-[1.05] 
+    <Link to={`/movie/${title}/${movieId}`} className="card-movie-container hover:scale-[1.05] 
       transition-transform duration-300 rounded-md h-full flex items-center justify-center my-[20px] mx-[4px]"
       >
       <div className="relative inline-block bg-gradient-to-b from-[#30323e] to-[#1e1f2a] m-[6px]
@@ -13,6 +14,6 @@ export const CardsMovies = ({img,title}) => {
           className="relative top-0 z-20 object-cover object-center rounded-[4px] w-full"
         />
       </div>
-    </div>
+    </Link>
   )
 }

@@ -1,0 +1,14 @@
+.bg-decoration{
+    background-image: radial-gradient(farthest-side at 73% 21%, transparent, rgb(26, 29, 41));
+    position: absolute;
+    inset: 0px;
+}
+
+.nav-movieDetail::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -15px;
+    background-color: rgba(240, 248, 255, 0.169);
+}
