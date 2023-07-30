@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         {isLoading || <NavBar/> }
-        <main className={`${isLoading || 'mt-[80px] mb-28'}`}>
+        <main className={`${isLoading || 'mt-[80px] mb-20'}`}>
           <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/brand/:categorie" element={<CategoriePage/>}/>

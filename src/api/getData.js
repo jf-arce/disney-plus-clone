@@ -8,6 +8,19 @@ const options = {
 
 const API_KEY = 'c53acaa36347fb555c1c84c70b4a1e4c';
 
+
+//DISNEY+ MOVIES
+export async function getDisneyPlusMovies() {
+  try {
+    const url = 'https://api.themoviedb.org/3/discover/movie?watch_region=US&with_watch_providers=337';
+    const response = await fetch(url,options);
+    const data = await response.json();
+    return data.results
+  } catch (error) {
+    console.error('Error al obtener las películas de Disney+:', error.message);
+  }
+}
+
 //******** MOVIES BY CATEGORY ****************
 export async function getMovies(company){
     try{

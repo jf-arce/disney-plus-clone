@@ -13,7 +13,7 @@ export const CardsCategories = ({img,video,categorie}) => {
   }
 
   return (
-    <Link className="card-show-container w-[calc(20%-7px)] hover:scale-[1.05] 
+    <Link className="card-show-container w-[265px] hover:scale-[1.05] 
       transition-transform duration-300 h-full flex items-center justify-center flex-wrap"
       onMouseEnter={handleHoverEnter}
       onMouseLeave={handleHoverLeave}

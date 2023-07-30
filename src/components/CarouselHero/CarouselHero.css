@@ -74,5 +74,21 @@
     }
 }
 
-  
-  
+/*DOTS*/
+
+.slick-dots{
+    position: absolute;
+    display: inline !important;
+    width: auto !important;
+    bottom: 30px !important;
+    right: 110px !important;
+}  
+
+.slick-dots li button:before{
+    color: rgba(152, 152, 152, 0.635) !important;
+    opacity: 1 !important;
+}
+
+.slick-dots li.slick-active button:before{
+    color: white !important;
+}
