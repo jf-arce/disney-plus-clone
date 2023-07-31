@@ -44,6 +44,21 @@ export const CarouselHero = () => {
     prevArrow: <SamplePrevArrow />,
     beforeChange: () => setActive(false),
     afterChange: () => setActive(true),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          centerPadding: "30px",
+        }
+      }
+    ]
   };
 
   return (
@@ -115,7 +130,7 @@ function SlideItem({ slide, active, slideTitle, alt, text, id, name }) {
   return (
     <Link to={`/movie/${name}/${id}`}>
       <div className="slide-item focus:outline-none shadow-lg shadow-black mt-[20px]">
-          <img src={slide} alt="slide" className="rounded-[4px] w-full h-[200px] md:h-auto object-cover object-center"/>
+          <img src={slide} alt="slide" className="rounded-[4px] w-full h-[150px] md:h-auto object-cover object-center"/>
           <div className={`absolute top-0 z-20 flex flex-col w-full`}>
             <img
               className={`object-cover object-center opacity-0 ${active && "animate-fade-right"}`}

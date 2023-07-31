@@ -39,7 +39,7 @@ export const NavBar = () => {
   return (
     <header className={`h-20 fixed top-0 w-full z-[100] transition-all duration-300 ${isScroll ? "bg-[#08070a]" : "bg-transparent"}`}>
       <div className="h-full px-[20px] md:px-[36px] flex justify-between">
-        <nav className="flex items-center justify-start h-full flex-grow gap-8">
+        <nav className="flex items-center justify-start h-full gap-8">
           <Link to="/" className="bg-[url('/assets/img/logo.svg')] min-h-[40px] min-w-[69px] sm:min-h-[48px] sm:min-w-[79px] bg-no-repeat bg-cover bg-center"></Link>
           <ul className="flex text-[#F9F9F9] text-[20px] font-black gap-6 xl:hidden">
             <li>
@@ -85,11 +85,11 @@ export const NavBar = () => {
           </ul>
         </nav>
         <div
-          className="text-white flex items-center justify-end gap-4 md:min-w-[200px] z-40"
+          className="text-white flex items-center justify-end gap-4 md:min-w-[200px] z-40 relative"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <h3 className={`text-[15px] xl:block ${hoverUser || hoverUserMenu ? 'block' : 'hidden'}`}>Nombre</h3>
+          <h3 className={`text-[15px] xl:block ${hoverUser || hoverUserMenu ? 'block absolute right-16' : 'hidden'}`}>Nombre</h3>
           <div className="bg-[url('/assets/img/jackjack.png')] bg-no-repeat bg-cover bg-center min-w-[40px] min-h-[40px] sm:min-w-[48px] sm:min-h-[48px]"></div>
         </div>
         <UserNav hoverUser={hoverUser} handleHoverUserMenu={handleHoverUserMenu} />
