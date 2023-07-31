@@ -3,16 +3,18 @@ import "./UserNav.css";
 import {AiOutlinePlus} from "react-icons/ai"
 import { Link } from "react-router-dom";
 
-export const UserNav = ({ hoverUser }) => {
+export const UserNav = ({ hoverUser,handleHoverUserMenu }) => {
   const [hoverUserMenu, setHoverUserMenu] = useState(false);
 
   const handleMouseEnter = () => {
     setHoverUserMenu(true);
+    handleHoverUserMenu(true);
   };
   const handleMouseLeave = () => {
     setHoverUserMenu(false);
+    handleHoverUserMenu(false);
   };
-
+  
   return (
     <div
       className={`${hoverUser || hoverUserMenu ? "flex menu-animation" : "hidden"} 

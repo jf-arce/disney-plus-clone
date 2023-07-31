@@ -11,6 +11,7 @@ export const NavBar = () => {
   const [hoverUser, setHoverUser] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
   const location = useLocation();
+  const [hoverUserMenu, setHoverUserMenu] = useState(false);
  
   useEffect(() => {
     scrollTo(0,0);
@@ -32,7 +33,10 @@ export const NavBar = () => {
     
     window.addEventListener('scroll', handleScroll);
   }, [isScroll]);
-    
+  
+  const handleHoverUserMenu = (status) =>{
+    setHoverUserMenu(status);
+  }
   return (
     <header className={`h-20 fixed top-0 w-full z-[100] transition-all duration-300 ${isScroll ? "bg-[#08070a]" : "bg-transparent"}`}>
       <div className="h-full px-[20px] md:px-[36px] flex justify-between">
@@ -86,10 +90,10 @@ export const NavBar = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <h3 className="text-[15px] hidden xl:block">Nombre</h3>
+          <h3 className={`text-[15px] xl:block ${hoverUser || hoverUserMenu ? 'block' : 'hidden'}`}>Nombre</h3>
           <div className="bg-[url('/assets/img/jackjack.png')] bg-no-repeat bg-cover bg-center min-w-[40px] min-h-[40px] sm:min-w-[48px] sm:min-h-[48px]"></div>
         </div>
-        <UserNav hoverUser={hoverUser} />
+        <UserNav hoverUser={hoverUser} handleHoverUserMenu={handleHoverUserMenu} />
       </div>
     </header>
   );
