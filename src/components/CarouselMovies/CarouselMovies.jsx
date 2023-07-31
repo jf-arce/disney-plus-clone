@@ -1,4 +1,3 @@
-import { CardsMovies } from "../Cards/CardsMovies";
 import Slider from "react-slick";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 

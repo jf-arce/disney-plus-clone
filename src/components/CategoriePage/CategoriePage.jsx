@@ -102,7 +102,7 @@ export const CategoriePage = () => {
     if (videoRef.current.style.opacity != 0) {
       videoRef.current.style.opacity = opacity;
     }
-  },[opacity])
+  },[opacity,imgRef])
 
   if (isLoading) return <Loader/>;
 

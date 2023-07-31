@@ -27,7 +27,6 @@ export const NavBar = () => {
   useEffect(() => {
     const handleScroll = () =>{
       const scrollPositionY = window.scrollY;
-      console.log(scrollPositionY);
       scrollPositionY === 0 ? setIsScroll(false) : setIsScroll(true);
     }
     
