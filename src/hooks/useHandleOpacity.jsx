@@ -10,7 +10,7 @@ export const useHandleOpacity = (imgRef) => {
           const opacityCalc = Math.max(0.2, 1 - (scrollY * 2.3) / heightVideo); // Asegura que el valor no sea menor que 0.2
           setOpacity(opacityCalc);
           
-          if (imgRef.current.style.opacity != 0) {
+          if (imgRef.current?.style?.opacity != 0) {
             imgRef.current.style.opacity = opacity;
           }
         };

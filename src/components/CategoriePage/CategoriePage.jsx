@@ -99,10 +99,10 @@ export const CategoriePage = () => {
   };
 
   useEffect(()=>{
-    if (videoRef.current.style.opacity != 0) {
+    if (videoRef.current && videoRef.current.style && videoRef.current.style.opacity != 0) {
       videoRef.current.style.opacity = opacity;
     }
-  },[opacity,imgRef])
+  },[opacity])
 
   if (isLoading) return <Loader/>;
 
