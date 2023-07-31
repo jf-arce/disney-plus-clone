@@ -9,7 +9,6 @@ import { getDisneyPlusMovies, getLogoMovies } from "../../api/getData";
 export const CarouselHero = () => {
   const [active, setActive] = useState(true);
   const [disneyPlusMovies, setDisneyPlusMovies] = useState([]);
-  const [moviesIds, setMoviesIds] = useState([]);
   const [logos, setLogos] = useState([]);
 
   useEffect(() =>{
@@ -19,8 +18,7 @@ export const CarouselHero = () => {
         setDisneyPlusMovies(movies);
 
         const movieIds = movies.map((movie) => movie.id);
-        setMoviesIds(movieIds);
-
+        
         const logosPromises = movieIds.map((id) => getLogoMovies(id));
 
         const logosData = await Promise.all(logosPromises);
@@ -49,7 +47,7 @@ export const CarouselHero = () => {
   };
 
   return (
-    <div className="my-10">
+    <div className="mt-0 mb-4 lg:mt-10 lg:mb-7">
       <Slider {...settings}>
         {/* {disneyPlusMovies.map((movie,index) =>(
           <SlideItem
@@ -117,7 +115,7 @@ function SlideItem({ slide, active, slideTitle, alt, text, id, name }) {
   return (
     <Link to={`/movie/${name}/${id}`}>
       <div className="slide-item focus:outline-none shadow-lg shadow-black mt-[20px]">
-          <img src={slide} alt="slide" className="rounded-[4px] w-full h-[345px] object-cover object-center"/>
+          <img src={slide} alt="slide" className="rounded-[4px] w-full h-[200px] md:h-auto object-cover object-center"/>
           <div className={`absolute top-0 z-20 flex flex-col w-full`}>
             <img
               className={`object-cover object-center opacity-0 ${active && "animate-fade-right"}`}

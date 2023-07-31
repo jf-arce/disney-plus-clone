@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useHandleOpacity = (imgRef,videoRef) => {
+export const useHandleOpacity = (imgRef) => {
     const [opacity, setOpacity] = useState(1);
 
     useEffect(() => {
@@ -10,9 +10,6 @@ export const useHandleOpacity = (imgRef,videoRef) => {
           const opacityCalc = Math.max(0.2, 1 - (scrollY * 2.3) / heightVideo); // Asegura que el valor no sea menor que 0.2
           setOpacity(opacityCalc);
           
-          if (videoRef.current.style.opacity != 0) {
-            videoRef.current.style.opacity = opacity;
-          }
           if (imgRef.current.style.opacity != 0) {
             imgRef.current.style.opacity = opacity;
           }

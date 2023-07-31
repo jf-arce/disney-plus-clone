@@ -20,7 +20,7 @@ export const CategoriePage = () => {
   const [brandCategorie, setbrandCategorie] = useState({});
   const videoRef = useRef(null);
   const imgRef = useRef(null);
-  const opacity = useHandleOpacity(imgRef,videoRef);
+  const opacity = useHandleOpacity(imgRef);
   const { loadingStatus, isLoading } = useLoaderContext();
 
   const brands = {
@@ -98,10 +98,16 @@ export const CategoriePage = () => {
     imgRef.current.style.opacity = opacity;
   };
 
+  useEffect(()=>{
+    if (videoRef.current.style.opacity != 0) {
+      videoRef.current.style.opacity = opacity;
+    }
+  },[opacity])
+
   if (isLoading) return <Loader/>;
 
   return (
-    <main className="text-white relative">
+    <div className="text-white relative">
       <div className="relative">
         <div className="fixed top-0 z-20 shadow-inset">
           <video
@@ -143,6 +149,6 @@ export const CategoriePage = () => {
           {itemsMovies}
         </CarouselMovies>
       </div>
-    </main>
+    </div>
   );
 };

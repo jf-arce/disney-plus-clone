@@ -13,6 +13,12 @@
     align-items: center;
     
 }
+
+@media screen and (max-width: 768px){
+    .arrow{
+        opacity: 1;
+    }
+}
 .arrow:hover{
     opacity: 1;
     transition: opacity 0.2s ease;

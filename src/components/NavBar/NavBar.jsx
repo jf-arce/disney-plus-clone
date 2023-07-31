@@ -1,5 +1,6 @@
 import { NavSection } from "./NavSection";
 import {AiFillHome,AiOutlineSearch,AiOutlinePlus,AiFillStar} from "react-icons/ai";
+import {SlOptionsVertical} from 'react-icons/sl'
 import { RiMovie2Fill } from "react-icons/ri";
 import { PiTelevisionSimpleFill } from "react-icons/pi";
 import { UserNav } from "../UserNav/UserNav";
@@ -10,7 +11,7 @@ export const NavBar = () => {
   const [hoverUser, setHoverUser] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
   const location = useLocation();
-  
+ 
   useEffect(() => {
     scrollTo(0,0);
   }, [location]);
@@ -25,6 +26,7 @@ export const NavBar = () => {
   useEffect(() => {
     const handleScroll = () =>{
       const scrollPositionY = window.scrollY;
+      console.log(scrollPositionY);
       scrollPositionY === 0 ? setIsScroll(false) : setIsScroll(true);
     }
     
@@ -33,10 +35,32 @@ export const NavBar = () => {
     
   return (
     <header className={`h-20 fixed top-0 w-full z-[100] transition-all duration-300 ${isScroll ? "bg-[#08070a]" : "bg-transparent"}`}>
-      <div className="h-full px-[36px] flex justify-between">
-        <nav className="flex items-center justify-start h-full">
-          <Link to="/" className="bg-[url('/assets/img/logo.svg')] min-h-[48px] min-w-[79px] bg-no-repeat bg-cover bg-center"></Link>
-          <ul className="flex text-[#F9F9F9] text-[13px] font-black ml-8">
+      <div className="h-full px-[20px] md:px-[36px] flex justify-between">
+        <nav className="flex items-center justify-start h-full flex-grow gap-8">
+          <Link to="/" className="bg-[url('/assets/img/logo.svg')] min-h-[40px] min-w-[69px] sm:min-h-[48px] sm:min-w-[79px] bg-no-repeat bg-cover bg-center"></Link>
+          <ul className="flex text-[#F9F9F9] text-[20px] font-black gap-6 xl:hidden">
+            <li>
+              <Link>
+                <AiFillHome/>
+              </Link>
+            </li>
+            <li>
+              <Link>
+                <AiOutlineSearch/>
+              </Link>
+            </li>
+            <li>
+              <Link>
+                <AiOutlinePlus/>
+              </Link>
+            </li>
+            <li>
+              <Link>
+                <SlOptionsVertical/>
+              </Link>
+            </li>
+          </ul>
+          <ul className="xl:flex text-[#F9F9F9] text-[13px] font-black hidden">
             <NavSection icon={<AiFillHome className="text-base" />}>
               Inicio
             </NavSection>
@@ -58,12 +82,12 @@ export const NavBar = () => {
           </ul>
         </nav>
         <div
-          className="text-white flex items-center justify-end gap-4 min-w-[240px] z-40"
+          className="text-white flex items-center justify-end gap-4 md:min-w-[200px] z-40"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <h3 className="text-[15px]">Nombre</h3>
-          <div className="bg-[url('/assets/img/jackjack.png')] bg-no-repeat bg-cover bg-center min-w-[48px] min-h-[48px]"></div>
+          <h3 className="text-[15px] hidden xl:block">Nombre</h3>
+          <div className="bg-[url('/assets/img/jackjack.png')] bg-no-repeat bg-cover bg-center min-w-[40px] min-h-[40px] sm:min-w-[48px] sm:min-h-[48px]"></div>
         </div>
         <UserNav hoverUser={hoverUser} />
       </div>

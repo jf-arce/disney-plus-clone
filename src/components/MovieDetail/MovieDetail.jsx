@@ -52,7 +52,7 @@ export const MovieDetail = () => {
 
   return (
     <div className="text-white relative h-full flex flex-col justify-evenlys overflow-x-hidden">
-      <div className="fixed h-full w-full -z-10">
+      <div className="fixed h-full w-full -z-10 top-0">
         <img
           src={`https://image.tmdb.org/t/p/w500${image}`}
           alt={movie.title}
@@ -63,7 +63,7 @@ export const MovieDetail = () => {
         <div className="bg-decoration"></div>
       </div>
       <article className="relative px-[calc(3.5vw+24px)] flex flex-col gap-7 justify-center">
-        <div className="mt-20 mb-8 max-w-[341px] min-w-[100px] w-[35vw]">
+        <div className="mt-20 mb-8 max-w-[500px] min-w-[280px] lg:max-w-[341px] lg:min-w-[100px] w-[35vw]">
           <img
             src={`https://image.tmdb.org/t/p/w500${logo}`}
             alt={movie.title}
