@@ -27,7 +27,8 @@ export async function getMovies(company){
         const apiUrl = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_companies=${company}`
         const response = await fetch(apiUrl,options)
         const data = await response.json();
-        return data
+        const moviesCanWatch = data.results.filter((movie)=> movie.backdrop_path !== null);
+        return moviesCanWatch
     }catch(error){
         console.log('Error al obtener las películas');
     }   
@@ -48,7 +49,8 @@ export async function getDisneyMovies() {
     const url = `https://api.themoviedb.org/3/discover/movie?with_companies=2,3&with_genres=16`;
     const response = await fetch(url,options);
     const data = await response.json();
-    return data
+    const moviesCanWatch = data.results.filter((movie)=> movie.backdrop_path !== null);
+    return moviesCanWatch
 
   } catch (error) {
     console.error('Error al obtener las películas de Disney:', error.message);
@@ -60,7 +62,8 @@ export async function getStarWarsMovies() {
     const url = `https://api.themoviedb.org/3/search/movie?query=star-wars&language=es`;
     const response = await fetch(url,options);
     const data = await response.json();
-    return data
+    const moviesCanWatch = data.results.filter((movie)=> movie.backdrop_path !== null);
+    return moviesCanWatch
   } catch (error) {
     console.error('Error al obtener las películas de star-wars:', error.message);
   }
@@ -73,9 +76,8 @@ export async function getMovieById(movieId) {
     const response = await fetch(url,options);
     const data = await response.json();
     return data
-
   } catch (error) {
-    console.error('Error al obtener las películas de star-wars:', error.message);
+    console.error('Error al obtener la pelicula:', error.message);
   }
 }
 
@@ -85,9 +87,10 @@ export async function getRecommendedMovies(movieId) {
     const url = `https://api.themoviedb.org/3/movie/${movieId}/recommendations?language=es&page=1`;
     const response = await fetch(url,options);
     const data = await response.json();
-    return data.results
+    const moviesCanWatch = data.results.filter((movie)=> movie.backdrop_path !== null);
+    return moviesCanWatch
   } catch (error) {
-    console.error('Error al obtener las películas de star-wars:', error.message);
+    console.error('Error al obtener segerencias:', error.message);
   }
 }
 
@@ -100,7 +103,7 @@ export async function getVideoMovies(movieId) {
     const trailer = data.results.filter(video => video.type === "Trailer")
     return trailer[0].key
   } catch (error) {
-    console.error('Error al obtener las películas de star-wars:', error.message);
+    console.error('Error al obtener el video:', error.message);
   }
 }
 
@@ -112,7 +115,7 @@ export async function getImageMovies(movieId) {
     const data = await response.json();
     return data
   } catch (error) {
-    console.error('Error al obtener las películas de star-wars:', error.message);
+    console.error('Error al obtener las imagenes:', error.message);
   }
 }
 
@@ -127,6 +130,18 @@ export async function getLogoMovies(movieId){
     const logoFinal = logoEs ? logoEs.file_path : logosFilter.find((logo) => logo.iso_639_1 === "en").file_path;
     return logoFinal
   } catch (error) {
-    console.error('Error al obtener el logo', error.message);
+  }
+}
+
+//Search Movie
+export async function searchMovies(search) {
+  try {
+    const url = `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false`;
+    const response = await fetch(url,options);
+    const data = await response.json();
+    const moviesCanWatch = data.results.filter((movie)=> movie.backdrop_path !== null);
+    return moviesCanWatch
+  } catch (error) {
+    console.error('Error al obtener las películas de star-wars:', error.message);
   }
 }

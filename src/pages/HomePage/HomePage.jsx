@@ -23,9 +23,9 @@ export const HomePage = () => {
       getPixarMovies(),
       getMarvelMovies()
     ]).then(([disneyMoviesData, pixarMoviesData, marvelMoviesData])=>{
-      setMoviesDisney(disneyMoviesData.results);
-      setMoviesPixar(pixarMoviesData.results);
-      setMoviesMarvel(marvelMoviesData.results);
+      setMoviesDisney(disneyMoviesData);
+      setMoviesPixar(pixarMoviesData);
+      setMoviesMarvel(marvelMoviesData);
     }).catch((error) => {
       console.log(error);
     }).finally(()=>{

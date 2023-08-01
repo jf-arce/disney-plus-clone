@@ -79,7 +79,7 @@ export const CategoriePage = () => {
     if (getMovies && brand) {
       loadingStatus(true)
       getMovies().then((data) => {
-        setMovies(data.results || []);
+        setMovies(data || []);
         setbrandCategorie(brand);
       }).catch((e) => {
         console.log(e);

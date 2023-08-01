@@ -6,6 +6,7 @@ import { CategoriePage } from "./components/CategoriePage/CategoriePage"
 import { MovieDetail } from "./components/MovieDetail/MovieDetail"
 import { VideoMovie } from "./components/VideoMovie/VideoMovie"
 import { useLoaderContext } from "./context/LoaderContext"
+import { SearchPage } from "./pages/SearchPage/SearchPage"
 
 function App() {
   const { isLoading } = useLoaderContext();
@@ -20,6 +21,7 @@ function App() {
             <Route path="/brand/:categorie" element={<CategoriePage/>}/>
             <Route path="/movie/:title/:movieId" element={<MovieDetail/>}/>
             <Route path="/movie/video/:videoId" element={<VideoMovie/>}/>
+            <Route path="/search" element={<SearchPage/>}/>
             <Route path="*" element={<h1 className="text-white">Error: 404</h1>}/>
           </Routes>
         </main>

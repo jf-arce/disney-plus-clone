@@ -43,12 +43,12 @@ export const NavBar = () => {
           <Link to="/" className="bg-[url('/assets/img/logo.svg')] min-h-[40px] min-w-[69px] sm:min-h-[48px] sm:min-w-[79px] bg-no-repeat bg-cover bg-center"></Link>
           <ul className="flex text-[#F9F9F9] text-[20px] font-black gap-6 xl:hidden">
             <li>
-              <Link>
+              <Link to="/">
                 <AiFillHome/>
               </Link>
             </li>
             <li>
-              <Link>
+              <Link to="/search">
                 <AiOutlineSearch/>
               </Link>
             </li>
@@ -64,10 +64,10 @@ export const NavBar = () => {
             </li>
           </ul>
           <ul className="xl:flex text-[#F9F9F9] text-[13px] font-black hidden">
-            <NavSection icon={<AiFillHome className="text-base" />}>
+            <NavSection icon={<AiFillHome className="text-base"/>} url="/">
               Inicio
             </NavSection>
-            <NavSection icon={<AiOutlineSearch className="text-lg" />}>
+            <NavSection icon={<AiOutlineSearch className="text-lg"/>} url="/search">
               Búsqueda
             </NavSection>
             <NavSection icon={<AiOutlinePlus className="text-base" />}>
