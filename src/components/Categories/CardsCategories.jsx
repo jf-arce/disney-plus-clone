@@ -19,8 +19,8 @@ export const CardsCategories = ({img,video,categorie}) => {
       onMouseLeave={handleHoverLeave}
       to={`/brand/${categorie}`}
       >
-      <div className="relative inline-block bg-gradient-to-b from-[#30323e] to-[#1e1f2a] m-[6px]
-      rounded-xl cursor-pointer shadow-xl shadow-black h-full">
+      <div className="relative inline-block bg-gradient-to-b from-[#30323e] to-[#1e1f2a] md:m-[6px] m-[3px]
+      rounded-[5px] md:rounded-[10px] cursor-pointer shadow-xl shadow-black h-full">
         <img
           src={img}
           alt={categorie}

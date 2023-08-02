@@ -28,19 +28,21 @@ export const CarouselMovies = ({data,children,title}) => {
         breakpoint: 600,
         settings: {
           slidesToShow: 2,
+          centerPadding: "30px",
         }
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
+          centerPadding: "30px",
         }
       }
     ]
   };
   return (
-    <div>
-      <h4 className="text-white ml-[90px] font-bold text-xl">{title}</h4>
+    <div className="animate-duration-1000">
+      <h4 className="text-white sm:ml-[90px] font-bold sm:text-xl text-lg text-center sm:text-start">{title}</h4>
       <Slider {...settings}>
         {children}
       </Slider>

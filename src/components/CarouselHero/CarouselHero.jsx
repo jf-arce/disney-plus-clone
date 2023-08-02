@@ -56,6 +56,7 @@ export const CarouselHero = () => {
         settings: {
           slidesToShow: 1,
           centerPadding: "30px",
+          dots: false,
         }
       }
     ]

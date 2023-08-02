@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         {isLoading || <NavBar/> }
-        <main className={`${isLoading || 'mt-[80px] mb-8'}`}>
+        <main className={`${isLoading || 'mt-[80px] mb-8 animate-duration-200'}`}>
           <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/brand/:categorie" element={<CategoriePage/>}/>

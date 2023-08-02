@@ -5,9 +5,9 @@ import './index.css'
 import { LoaderContextProvider } from './context/LoaderContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <LoaderContextProvider>
       <App />
     </LoaderContextProvider>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )
