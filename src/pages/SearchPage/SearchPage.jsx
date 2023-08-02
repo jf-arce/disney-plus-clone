@@ -54,10 +54,10 @@ export const SearchPage = () => {
       return (
         <div className="px-[calc(3.5vw+24px)] mt-[180px] sm:mt-[230px] text-[#f9f9f9]">
           <h4 className="font-bold text-xl ml-4">Explorar</h4>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 animate-fade">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 animate-fade">
             {useCreateItemsMovies(moviesSearch)}
           </div>
-          <p className="flex w-full justify-center py-[70px] text-center flex-wrap">
+          <p className="flex w-full justify-center py-[40px] lg:py-[70px] text-center flex-wrap">
             <span className="text-center">Tu perfil está configurado en </span>
             <img
               className="h-[20px] px-1"
@@ -75,13 +75,13 @@ export const SearchPage = () => {
   };
   return (
     <div>
-      <form className="fixed z-50 w-full top-20">
+      <form className="fixed z-50 w-full top-20 animate-fade-down animate-duration-500">
         <div>
           <input
             type="text"
             ref={inputRef}
             onChange={handleSearch}
-            className="w-full pl-5 sm:pl-24 py-5 text-[26px] sm:text-[44px] text-[#a8a9ad] focus:outline-none placeholder:pl-2 font-semibold bg-[#4B4E5A]"
+            className="w-full pl-12 sm:pl-24 py-3 text-[26px] sm:text-[44px] text-[#a8a9ad] focus:outline-none placeholder:lg:pl-2 font-semibold bg-[#4B4E5A]"
             placeholder="Título, personaje o género"
           />
         </div>
