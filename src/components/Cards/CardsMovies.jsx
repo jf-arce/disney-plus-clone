@@ -13,7 +13,7 @@ export const CardsMovies = ({img,title, movieId}) => {
 
   return (
     <Link to={`/movie/${title}/${movieId}`} className="card-movie-container hover:scale-[1.05] 
-      transition-transform duration-300 rounded-md flex items-center justify-center my-[20px] mx-[4px]"
+      transition-transform duration-300 rounded-md flex items-center justify-center my-[15px] lg:my-[20px] md:mx-[4px]"
       >
       <div className="relative inline-block bg-gradient-to-b from-[#30323e] to-[#1e1f2a] m-[6px]
       rounded-xl cursor-pointer shadow-lg shadow-black">

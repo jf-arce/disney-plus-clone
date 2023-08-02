@@ -20,3 +20,9 @@
     opacity: 1;
     border-color: #e5e5e5;
 }
+
+@media screen and (max-width: 768px) {
+    .slick-slide{
+        margin: 0;
+    }
+}

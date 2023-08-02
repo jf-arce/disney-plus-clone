@@ -48,6 +48,8 @@ export const CarouselHero = () => {
       {
         breakpoint: 1024,
         settings: {
+          className: "center",
+          centerPadding: "15px",
           slidesToShow: 1,
         }
       },
@@ -55,7 +57,8 @@ export const CarouselHero = () => {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          centerPadding: "30px",
+          className: "center",
+          centerPadding: "15px",
           dots: false,
         }
       }
@@ -78,6 +81,15 @@ export const CarouselHero = () => {
           />
         ))} */}
         <SlideItem
+          slide="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/8B338B14C62DD92AE6BA23119CBA3EDF22BBEBC042BB3943FB927A23E46B7BD5/scale?width=1440&aspectRatio=3.91&format=jpeg"
+          active={active}
+          slideTitle="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/1F879C1A1279415A3F826E3F958E47C26C218F70CA0E9703DF82D69DEB03A25E/scale?width=1440&aspectRatio=3.91&format=png"
+          alt="guardianes de la galaxia"
+          text=""
+          id={447365}
+          name='guardians-of-the-galaxy-vol-3'
+        />
+        <SlideItem
           slide="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/A7DC0DC13E03EB11D2EB3630FD49A33A05588087DD912708612F6A69A9AF7BE3/compose?width=1440&aspectRatio=3.91&format=jpeg&label=disneyplusoriginal_391"
           active={active}
           slideTitle="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/A2AD684E19E92013F370070D1C55937DD2A6500613C3DAED683EED7A08651F34/scale?width=1440&aspectRatio=3.91&format=png"
@@ -94,15 +106,6 @@ export const CarouselHero = () => {
           text=""
           id={568124}
           name='encanto'
-        />
-        <SlideItem
-          slide="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/6601E6C91C71C781E6C73043CEA69B6A37CE120471E9442FA6502A4EDBB21BAA/scale?width=1440&aspectRatio=3.91&format=jpeg"
-          active={active}
-          slideTitle="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/5243B8071ABDDE0F25CE3CEA72006204D44930D99A60A9BBF5ACBB451733E67C/scale?width=1440&aspectRatio=3.91&format=png"
-          alt="cars"
-          text=""
-          id={920}
-          name='cars'
         />
         <SlideItem
           slide="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/70B982FC249A92CE10CB111B4A2019AF3ADADF9C39DCD73FF4F5628877209815/scale?width=1440&aspectRatio=3.91&format=jpeg"
@@ -130,8 +133,8 @@ export const CarouselHero = () => {
 function SlideItem({ slide, active, slideTitle, alt, text, id, name }) {
   return (
     <Link to={`/movie/${name}/${id}`}>
-      <div className="slide-item focus:outline-none shadow-lg shadow-black mt-[20px]">
-          <img src={slide} alt="slide" className="rounded-[4px] w-full h-[150px] md:h-auto object-cover object-center"/>
+      <div className="slide-item focus:outline-none shadow-lg shadow-black lg:mt-[20px]">
+          <img src={slide} alt="slide" className="rounded-[4px] w-full h-[190px] lg:h-auto object-cover object-center"/>
           <div className={`absolute top-0 z-20 flex flex-col w-full`}>
             <img
               className={`object-cover object-center opacity-0 ${active && "animate-fade-right"}`}

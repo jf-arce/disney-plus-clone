@@ -27,7 +27,6 @@ function App() {
         </main>
         {isLoading || <Footer/> }
       </BrowserRouter>
-      
     </div>
   )
 }

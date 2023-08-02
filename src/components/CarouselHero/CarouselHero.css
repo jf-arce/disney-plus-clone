@@ -30,6 +30,12 @@
     margin: 10px;
 }
 
+@media screen and (max-width: 768px) {
+    .slide-item{
+        margin: 5px;
+    }
+}
+
 .slide-item::after {
     content: "";
     position: absolute;

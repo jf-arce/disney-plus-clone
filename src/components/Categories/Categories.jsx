@@ -3,7 +3,7 @@ import { CardsCategories } from "./CardsCategories"
 export const Categories = () => {
 
   return (
-    <div className="mx-[38px] md:mx-[80px] flex justify-between">
+    <div className="mx-[20px] lg:mx-[80px] flex justify-between">
         <CardsCategories
             img="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/FFA0BEBAC1406D88929497501C84019EBBA1B018D3F7C4C3C829F1810A24AD6E/scale?width=400&aspectRatio=1.78&format=png"
             video="https://vod-bgc-sa-east-1.media.dssott.com/bgui/ps01/disney/bgui/2019/08/01/1564674844-disney.mp4"
