@@ -53,7 +53,7 @@ export const NavBar = () => {
               </Link>
             </li>
             <li>
-              <Link>
+              <Link to="/mylist">
                 <AiOutlinePlus/>
               </Link>
             </li>
@@ -70,7 +70,7 @@ export const NavBar = () => {
             <NavSection icon={<AiOutlineSearch className="text-lg"/>} url="/search">
               Búsqueda
             </NavSection>
-            <NavSection icon={<AiOutlinePlus className="text-base" />}>
+            <NavSection icon={<AiOutlinePlus className="text-base"/>} url="/mylist">
               Mi lista
             </NavSection>
             <NavSection icon={<AiFillStar className="text-base" />}>

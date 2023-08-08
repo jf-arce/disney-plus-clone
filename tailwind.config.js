@@ -8,6 +8,7 @@ export default {
     extend: {
       backgroundImage: {
         'body': 'radial-gradient(#06070A,#1E222F)',
+        'body-img': 'url(/public/assets/img/bg-body.png)'
       }
     },
   },

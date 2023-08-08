@@ -36,7 +36,7 @@ export const HomePage = () => {
   if (isLoading) return <Loader/>
   
   return (
-    <div className=" min-h-screen relative">
+    <div className=" min-h-screen relative pb-8">
       <CarouselHero/>
       <Categories/>
       <section className="movies-container mt-6">

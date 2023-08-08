@@ -32,7 +32,7 @@ export const SearchPage = () => {
   const showMovies = () => {
     if (moviesSearch.length === 0) {
       return (
-        <div className="h-[500px] flex flex-col items-center pt-32 gap-6 text-[#f9f9f9]">
+        <div className="h-[500px] flex flex-col items-center pt-32 gap-6 text-[#f9f9f9] pb-8">
           <h3 className="font-bold text-xl">
             No se encontraron resultado para "{search}".
           </h3>
@@ -52,7 +52,7 @@ export const SearchPage = () => {
       );
     } else {
       return (
-        <div className="px-[calc(3.5vw+24px)] mt-[180px] sm:mt-[230px] text-[#f9f9f9]">
+        <div className="px-[calc(3.5vw+24px)] mt-[180px] sm:mt-[230px] text-[#f9f9f9] pb-8">
           <h4 className="font-bold text-xl ml-4">Explorar</h4>
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 animate-fade">
             {useCreateItemsMovies(moviesSearch)}

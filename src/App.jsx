@@ -7,26 +7,31 @@ import { MovieDetail } from "./components/MovieDetail/MovieDetail"
 import { VideoMovie } from "./components/VideoMovie/VideoMovie"
 import { useLoaderContext } from "./context/LoaderContext"
 import { SearchPage } from "./pages/SearchPage/SearchPage"
+import { MyListPage } from "./pages/MyListPage/MyListPage"
+import { ListContextProvider } from "./context/ListContext"
 
 function App() {
   const { isLoading } = useLoaderContext();
 
   return (
     <div className="App">
-      <BrowserRouter>
-        {isLoading || <NavBar/> }
-        <main className={`${isLoading || 'mt-[80px] mb-8 animate-duration-200'}`}>
-          <Routes>
-            <Route path="/" element={<HomePage/>}/>
-            <Route path="/brand/:categorie" element={<CategoriePage/>}/>
-            <Route path="/movie/:title/:movieId" element={<MovieDetail/>}/>
-            <Route path="/movie/video/:videoId" element={<VideoMovie/>}/>
-            <Route path="/search" element={<SearchPage/>}/>
-            <Route path="*" element={<h1 className="text-white">Error: 404</h1>}/>
-          </Routes>
-        </main>
-        {isLoading || <Footer/> }
-      </BrowserRouter>
+      <ListContextProvider>
+        <BrowserRouter>
+          {isLoading || <NavBar/> }
+          <main className={`${isLoading || 'mt-[80px] animate-duration-200'}`}>
+            <Routes>
+              <Route path="/" element={<HomePage/>}/>
+              <Route path="/brand/:categorie" element={<CategoriePage/>}/>
+              <Route path="/movie/:title/:movieId" element={<MovieDetail/>}/>
+              <Route path="/movie/video/:videoId" element={<VideoMovie/>}/>
+              <Route path="/search" element={<SearchPage/>}/>
+              <Route path="/mylist" element={<MyListPage/>}/>
+              <Route path="*" element={<h1 className="text-white">Error: 404</h1>}/>
+            </Routes>
+          </main>
+          {isLoading || <Footer/> }
+        </BrowserRouter>
+      </ListContextProvider>
     </div>
   )
 }

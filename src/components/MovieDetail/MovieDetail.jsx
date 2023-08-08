@@ -51,7 +51,7 @@ export const MovieDetail = () => {
   if (isLoading) return <Loader/>
 
   return (
-    <div className="text-white relative h-full flex flex-col justify-evenlys overflow-x-hidden animate-fade">
+    <div className="text-white relative h-full flex flex-col justify-evenlys overflow-x-hidden animate-fade pb-8">
       <div className="fixed h-full w-full -z-10 top-0">
         <img
           src={`https://image.tmdb.org/t/p/w500${image}`}
@@ -80,7 +80,7 @@ export const MovieDetail = () => {
           {movie.genres &&
             movie.genres.map((genero) => <p key={genero.id}>{genero.name}</p>)}
         </div>
-        <VideoButtons videoMovie={videoMovie} />
+        <VideoButtons videoMovie={videoMovie} id={movie.id} bg={movie.backdrop_path} title={movie.title}/>
         <div className="max-w-3xl">
           <p className="text-xl">{movie.overview}</p>
         </div>
