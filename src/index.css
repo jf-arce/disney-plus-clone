@@ -20,8 +20,29 @@
     padding: 0;
     box-sizing: border-box;
     font-family: avenir-roman, sans-serif;
+    color:#f9f9f9;
 }
 
 body{
     background: linear-gradient(#06070A,#1E222F);
+    /* background-color: rgb(26, 29, 41); */
+
+}
+
+.app-background{
+    background-color: rgb(26, 29, 41);
+    position: fixed;
+    height: 100vh;
+    top: 0px;
+    transition: opacity 200ms ease 0s;
+    width: 100%;
+    z-index: -3;
+}
+.app-background:after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    opacity: 1;
+    transition: opacity 500ms ease 0s;
+    background: url(/public/assets/img/bg-body.png) 50%/cover no-repeat fixed;
 }

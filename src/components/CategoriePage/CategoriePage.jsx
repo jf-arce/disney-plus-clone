@@ -8,11 +8,11 @@ import {
   getNationalGeographicMovies,
 } from "../../api/getData";
 import { CarouselMovies } from "../CarouselMovies/CarouselMovies";
-import "./CategoriePage.css";
 import { useCreateItemsMovies } from "../../hooks/useCreateItemsMovies";
 import { useHandleOpacity } from "../../hooks/useHandleOpacity";
 import { useLoaderContext } from "../../context/LoaderContext";
 import { Loader } from "../Loader/Loader";
+import "./CategoriePage.css";
 
 export const CategoriePage = () => {
   const { categorie } = useParams();
@@ -95,7 +95,9 @@ export const CategoriePage = () => {
 
   const handleOpacityTransition = () => {
     videoRef.current.style.opacity = 0;
-    imgRef.current.style.opacity = opacity;
+    setTimeout(()=>{
+      imgRef.current.style.opacity = opacity;
+    },200)
   };
 
   useEffect(()=>{
@@ -107,9 +109,9 @@ export const CategoriePage = () => {
   if (isLoading) return <Loader/>;
 
   return (
-    <div className="text-white relative">
+    <div className="text-white relative bg-[#1a1d29]">
       <div className="relative">
-        <div className="fixed top-0 z-20 shadow-inset">
+        <div className="fixed top-0 shadow-inset">
           <video
             src={brandCategorie.video}
             autoPlay
@@ -122,7 +124,7 @@ export const CategoriePage = () => {
             style={{ opacity: 1 }}
           />
         </div>
-        <div className="fixed top-0 z-10 w-full">
+        <div className="fixed top-0 w-full">
           <img
             className="w-full opacity-duration-img"
             src={brandCategorie.hero}
@@ -130,6 +132,7 @@ export const CategoriePage = () => {
             ref={imgRef}
             style={{ opacity: 0 }}
           />
+          <div className="bg-opacity"></div>
         </div>
       </div>
       <div>

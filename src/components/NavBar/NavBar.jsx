@@ -6,6 +6,7 @@ import { PiTelevisionSimpleFill } from "react-icons/pi";
 import { UserNav } from "../UserNav/UserNav";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import './NavBar.css';
 
 export const NavBar = () => {
   const [hoverUser, setHoverUser] = useState(false);
@@ -37,13 +38,13 @@ export const NavBar = () => {
     setHoverUserMenu(status);
   }
   return (
-    <header className={`h-20 fixed top-0 w-full z-[100] transition-all duration-300 ${isScroll ? "bg-[#08070a]" : "bg-transparent"}`}>
+    <header className={`bg-nav-decoration h-20 fixed top-0 w-full z-[100] transition-all duration-300 ${isScroll ? "bg-[#08070a]" : "bg-transparent"}`}>
       <div className="h-full px-[20px] md:px-[36px] flex justify-between">
         <nav className="flex items-center justify-start h-full gap-8">
-          <Link to="/" className="bg-[url('/assets/img/logo.svg')] min-h-[40px] min-w-[69px] sm:min-h-[48px] sm:min-w-[79px] bg-no-repeat bg-cover bg-center"></Link>
+          <Link to="/home" className="bg-[url('/assets/img/logo.svg')] min-h-[40px] min-w-[69px] sm:min-h-[48px] sm:min-w-[79px] bg-no-repeat bg-cover bg-center"></Link>
           <ul className="flex text-[#F9F9F9] text-[20px] font-black gap-6 xl:hidden">
             <li>
-              <Link to="/">
+              <Link to="/home">
                 <AiFillHome/>
               </Link>
             </li>
@@ -64,7 +65,7 @@ export const NavBar = () => {
             </li>
           </ul>
           <ul className="xl:flex text-[#F9F9F9] text-[13px] font-black hidden">
-            <NavSection icon={<AiFillHome className="text-base"/>} url="/">
+            <NavSection icon={<AiFillHome className="text-base"/>} url="/home">
               Inicio
             </NavSection>
             <NavSection icon={<AiOutlineSearch className="text-lg"/>} url="/search">

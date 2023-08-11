@@ -8,3 +8,9 @@
 .opacity-duration-img{
     transition: opacity 200ms linear 0s;
 }
+
+.bg-opacity{
+    background-image: linear-gradient(transparent 25%, transparent 50%, rgb(26, 29, 41) 75%, rgb(26, 29, 41) 100%);
+    position: absolute;
+    inset: 0px;
+}

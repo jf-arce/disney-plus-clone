@@ -13,8 +13,8 @@ import { VideoButtons } from "../VideoButtons/VideoButtons";
 import { MovieDetailNav } from "../MovieDetailNav/MovieDetailNav";
 import { Loader } from "../Loader/Loader";
 import { useLoaderContext } from "../../context/LoaderContext";
-import "./MovieDetail.css";
 import { useHandleOpacity } from "../../hooks/useHandleOpacity";
+import "./MovieDetail.css";
 
 export const MovieDetail = () => {
   const { movieId } = useParams();
@@ -51,8 +51,8 @@ export const MovieDetail = () => {
   if (isLoading) return <Loader/>
 
   return (
-    <div className="text-white relative h-full flex flex-col justify-evenlys overflow-x-hidden animate-fade pb-8">
-      <div className="fixed h-full w-full -z-10 top-0">
+    <div className="text-white relative h-full flex flex-col justify-evenlys overflow-x-hidden animate-fade pb-8 bg-[#1a1d29]">
+      <div className="fixed w-full -z-10 top-0">
         <img
           src={`https://image.tmdb.org/t/p/w500${image}`}
           alt={movie.title}

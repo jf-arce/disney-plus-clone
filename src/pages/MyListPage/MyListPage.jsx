@@ -6,13 +6,13 @@ export const MyListPage = () => {
     const {list} = useListContext();
 
     return (
-        <div className='px-[calc(3.5vw+24px)] text-[#f9f9f9] min-h-[700px] bg-body-img bg-no-repeat bg-center bg-cover '>
+        <div className='px-[calc(3.5vw+24px)] text-[#f9f9f9] min-h-[700px]'>
             {list.length === 0 ? (
                 <div className='min-h-[700px] flex justify-center items-center'>
                     <div className='flex flex-col justify-center items-center text-slate-50 gap-4'> 
                         <BsPlusCircle className='text-[#c8c8c8] text-9xl opacity-20 mb-6'/>
                         <h2 className='text-2xl font-black'>Mi lista está vacía</h2>
-                        <h3>El contenido que agregues aparecerá aquí</h3>
+                        <h3 className='text-center'>El contenido que agregues aparecerá aquí</h3>
                     </div>
                 </div>
             ) 

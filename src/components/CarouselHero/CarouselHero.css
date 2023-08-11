@@ -99,3 +99,7 @@
 .slick-dots li.slick-active button:before{
     color: white !important;
 }
+
+.slick-slide{
+    padding-bottom: 14px;
+}

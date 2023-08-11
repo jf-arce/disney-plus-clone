@@ -32,17 +32,19 @@ export const SearchPage = () => {
   const showMovies = () => {
     if (moviesSearch.length === 0) {
       return (
-        <div className="h-[500px] flex flex-col items-center pt-32 gap-6 text-[#f9f9f9] pb-8">
-          <h3 className="font-bold text-xl">
+        <div className="flex flex-col items-center pt-32 gap-6 text-[#f9f9f9] pb-8 px-[calc(3.5vw+24px)]">
+          <h3 className="font-bold text-xl text-center">
             No se encontraron resultado para "{search}".
           </h3>
-          <p className="flex text-[12px]">
+          <p className="text-[15px] text-center">
             <span>Tu perfil está configurado en </span>
-            <img
-              className="h-[20px] px-1"
-              src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v1/variant/disney/8775493319563D9A68A3001387B709C39A510D9A5A139D8D7301EB21BB6BEBBC/scale?"
-              alt=""
-            />
+            <span>
+              <img
+                className="h-[20px] px-1 inline"
+                src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v1/variant/disney/8775493319563D9A68A3001387B709C39A510D9A5A139D8D7301EB21BB6BEBBC/scale?"
+                alt=""
+              />
+            </span>
             <span>
               . Los títulos con clasificación superior no aparecerán. Actualiza
               la clasificación por edades en los ajustes de perfil.
@@ -81,7 +83,7 @@ export const SearchPage = () => {
             type="text"
             ref={inputRef}
             onChange={handleSearch}
-            className="w-full pl-12 sm:pl-24 py-3 text-[26px] sm:text-[44px] text-[#a8a9ad] focus:outline-none placeholder:lg:pl-2 font-semibold bg-[#4B4E5A]"
+            className="w-full pl-[calc(calc(3.5vw+24px))] py-3 text-[26px] sm:text-[44px] text-[#a8a9ad] focus:outline-none placeholder:lg:pl-2 font-semibold bg-[#4B4E5A]"
             placeholder="Título, personaje o género"
           />
         </div>
