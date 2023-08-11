@@ -6,7 +6,7 @@ import { ButtonLogIn } from '../../components/Buttons/ButtonLogIn'
 
 export const DisneySubscriptionPage = () => {
   return (
-    <div className='bg-[#040714]'>
+    <div className='bg-[#040714] '>
       <header className={`h-20 fixed top-0 w-full px-[36px]`}>
         <nav className='h-full flex items-center'>
           <Link to="/home" className="hidden bg-[url('/assets/img/logo.svg')] min-h-[40px] min-w-[69px] sm:min-h-[48px] sm:min-w-[79px] bg-no-repeat bg-cover bg-center"></Link>
@@ -20,7 +20,7 @@ export const DisneySubscriptionPage = () => {
           </ul>
         </nav>
       </header>
-      <main className='mt-[80px]'>
+      <main className=''>
         <HeroSubscription/>
       </main>
       
