@@ -51,7 +51,7 @@ export const MovieDetail = () => {
   if (isLoading) return <Loader/>
 
   return (
-    <div className="text-white relative h-full flex flex-col justify-evenlys overflow-x-hidden animate-fade pb-8 bg-[#1a1d29]">
+    <div className="text-[#f9f9f9] relative h-full flex flex-col justify-evenlys overflow-x-hidden animate-fade pb-8 bg-[#1a1d29]">
       <div className="fixed w-full -z-10 top-0">
         <img
           src={`https://image.tmdb.org/t/p/w500${image}`}

@@ -2,9 +2,11 @@ import { useState } from "react";
 import "./UserNav.css";
 import {AiOutlinePlus} from "react-icons/ai"
 import { Link } from "react-router-dom";
+import { useUserContext } from "../../context/UserContext";
 
 export const UserNav = ({ hoverUser,handleHoverUserMenu }) => {
   const [hoverUserMenu, setHoverUserMenu] = useState(false);
+  const { logOut } = useUserContext(); 
 
   const handleMouseEnter = () => {
     setHoverUserMenu(true);
@@ -14,6 +16,10 @@ export const UserNav = ({ hoverUser,handleHoverUserMenu }) => {
     setHoverUserMenu(false);
     handleHoverUserMenu(false);
   };
+  const handleLogOut= async ()=>{
+    await logOut();
+    localStorage.setItem('isLogged', false);
+  }
   
   return (
     <div
@@ -45,7 +51,7 @@ export const UserNav = ({ hoverUser,handleHoverUserMenu }) => {
             <Link className="hover:text-[#e8e8e8]">Ayuda</Link>
           </li>
           <li>
-            <Link className="hover:text-[#e8e8e8]">Cerrar sesión</Link>
+            <Link className="hover:text-[#e8e8e8]" onClick={handleLogOut} to="/es-ar">Cerrar sesión</Link>
           </li>
         </ul>
       </div>

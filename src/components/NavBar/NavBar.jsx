@@ -7,13 +7,16 @@ import { UserNav } from "../UserNav/UserNav";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import './NavBar.css';
+import { useUserContext } from "../../context/UserContext";
 
 export const NavBar = () => {
   const [hoverUser, setHoverUser] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
   const location = useLocation();
   const [hoverUserMenu, setHoverUserMenu] = useState(false);
- 
+  const { user } = useUserContext();
+  const currentUser = user.displayName;
+
   useEffect(() => {
     scrollTo(0,0);
   }, [location]);
@@ -90,7 +93,7 @@ export const NavBar = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <h3 className={`text-[15px] xl:block ${hoverUser || hoverUserMenu ? 'block absolute right-16' : 'hidden'}`}>Nombre</h3>
+          <h3 className={`text-[15px] uppercase xl:block ${hoverUser || hoverUserMenu ? 'block absolute right-16' : 'hidden'}`}>{currentUser}</h3>
           <div className="bg-[url('/assets/img/jackjack.png')] bg-no-repeat bg-cover bg-center min-w-[40px] min-h-[40px] sm:min-w-[48px] sm:min-h-[48px]"></div>
         </div>
         <UserNav hoverUser={hoverUser} handleHoverUserMenu={handleHoverUserMenu} />

@@ -1,10 +1,18 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { HeroSubscription } from '../../components/HeroSubscription/HeroSubscription'
 import './DisneySubscriptionPage.css'
 import { ButtonPrimary } from '../../components/Buttons/ButtonPrimary'
 import { ButtonLogIn } from '../../components/Buttons/ButtonLogIn'
+import { useEffect } from 'react'
 
 export const DisneySubscriptionPage = () => {
+  const isLogged = localStorage.getItem("isLogged");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    isLogged === 'true' && navigate('/home');
+  },[])
+  
   return (
     <div className='bg-[#040714] '>
       <header className={`h-20 fixed top-0 w-full px-[36px]`}>

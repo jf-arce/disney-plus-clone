@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom"
+import { Route,Routes } from "react-router-dom"
 import { useLoaderContext } from "../../context/LoaderContext"
 import { ListContextProvider } from "../../context/ListContext";
 import { NavBar } from "../../components/NavBar/NavBar";
@@ -15,12 +15,13 @@ export const DisneyApp = () => {
   const { isLoading } = useLoaderContext();
 
   return (
-    <div className="App">
+    <>
       <ListContextProvider>
           {isLoading || <NavBar/> }
           <div className="app-background"></div>
           <main className={`${isLoading || 'mt-[80px] animate-duration-200 min-h-[calc(100vh-250px)]'}`}>
             <Routes>
+              <Route index element={<HomePage/>}/>
               <Route path="/home" element={<HomePage/>}/>
               <Route path="/brand/:categorie" element={<CategoriePage/>}/>
               <Route path="/movie/:title/:movieId" element={<MovieDetail/>}/>
@@ -32,7 +33,7 @@ export const DisneyApp = () => {
           </main>
           {isLoading || <Footer/> }
       </ListContextProvider>
-    </div>
+    </>
   )
 }
 
