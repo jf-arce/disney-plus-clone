@@ -13,7 +13,7 @@
     border: 3px solid transparent;
     border-radius: 0.375rem;
     opacity: 0;
-    transition: opacity 100ms linear, border 150ms linear;
+    transition: opacity 300ms linear, border 150ms linear;
 }
 
 .card-movie-container:hover::after {

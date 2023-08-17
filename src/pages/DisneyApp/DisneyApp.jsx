@@ -9,6 +9,7 @@ import { VideoMovie } from "../../components/VideoMovie/VideoMovie";
 import { SearchPage } from "../SearchPage/SearchPage";
 import { MyListPage } from "../MyListPage/MyListPage";
 import { Footer } from "../../components/Footer/Footer";
+import { CustomProfile } from "../CustomProfile/CustomProfile";
 
 
 export const DisneyApp = () => {
@@ -28,6 +29,7 @@ export const DisneyApp = () => {
               <Route path="/movie/video/:videoId" element={<VideoMovie/>}/>
               <Route path="/search" element={<SearchPage/>}/>
               <Route path="/mylist" element={<MyListPage/>}/>
+              <Route path="/custom-profile" element={<CustomProfile/>}/>
               <Route path="*" element={<h1 className="text-white">Error: 404</h1>}/>
             </Routes> 
           </main>

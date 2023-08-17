@@ -39,7 +39,7 @@ export const UserNav = ({ hoverUser,handleHoverUserMenu }) => {
         </div>
         <ul className={`flex flex-col gap-4 mt-5 text-[15px] `}>
           <li>
-            <Link className="hover:text-[#e8e8e8]">Editar perfiles</Link>
+            <Link to="/custom-profile" className="hover:text-[#e8e8e8]">Editar perfiles</Link>
           </li>
           <li>
             <Link className="hover:text-[#e8e8e8]">Ajustes de la aplicación</Link>

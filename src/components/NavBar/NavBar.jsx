@@ -16,6 +16,11 @@ export const NavBar = () => {
   const [hoverUserMenu, setHoverUserMenu] = useState(false);
   const { user } = useUserContext();
   const currentUser = user.displayName;
+  const photoUser = user.photoURL;
+  
+  useEffect(()=>{
+
+  },[user])
 
   useEffect(() => {
     scrollTo(0,0);
@@ -93,8 +98,10 @@ export const NavBar = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <h3 className={`text-[15px] uppercase xl:block ${hoverUser || hoverUserMenu ? 'block absolute right-16' : 'hidden'}`}>{currentUser}</h3>
-          <div className="bg-[url('/assets/img/jackjack.png')] bg-no-repeat bg-cover bg-center min-w-[40px] min-h-[40px] sm:min-w-[48px] sm:min-h-[48px]"></div>
+          <h3 className={`text-[15px] xl:block ${hoverUser || hoverUserMenu ? 'block absolute right-16' : 'hidden'}`}>{currentUser}</h3>
+          <div>
+            <img src={photoUser} alt="" className="w-[40px] h-[40px] sm:w-[48px] sm:h-[48px]"/>
+          </div>
         </div>
         <UserNav hoverUser={hoverUser} handleHoverUserMenu={handleHoverUserMenu} />
       </div>

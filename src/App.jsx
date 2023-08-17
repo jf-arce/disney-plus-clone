@@ -6,10 +6,7 @@ import { UserContextProvider } from "./context/UserContext";
 import { Register } from "./components/Register/Register";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 
-
 function App() {
-  
-
   return (
     <div className="App">
       <UserContextProvider>

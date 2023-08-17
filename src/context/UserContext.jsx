@@ -12,6 +12,7 @@ export const UserContextProvider = ({children})=>{
     const [isLogged, setIsLogged] = useState(false);
     const navigate = useNavigate();
     const [loading,setLoading] = useState(true);
+    const [update, setUpdate] = useState(false);
 
     const signUp = async (email,password,userName) =>{
         try{
@@ -41,15 +42,24 @@ export const UserContextProvider = ({children})=>{
 
     const logOut = () => signOut(auth)
 
+    const updateUserProfile = async (newUserName,newUserImage) =>{
+        await updateProfile(user,{
+            displayName: newUserName,
+            photoURL: newUserImage
+        })
+        setUpdate(!update)
+    }
+
     useEffect(() =>{
         onAuthStateChanged(auth, userLogged =>{
             setUser(userLogged)
+            console.log(userLogged);
             setLoading(false)
         })
     },[]);
 
     return(
-        <UserContext.Provider value={{signUp,logIn,logOut,user,loading}}>
+        <UserContext.Provider value={{signUp,logIn,logOut,user,loading,updateUserProfile}}>
             {children}
         </UserContext.Provider>
     )
