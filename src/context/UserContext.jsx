@@ -19,7 +19,8 @@ export const UserContextProvider = ({children})=>{
             const userCredential = await createUserWithEmailAndPassword(auth,email,password);
             const user = userCredential.user;
             await updateProfile(user,{
-                displayName: userName
+                displayName: userName,
+                photoURL: "/assets/img/default.png"
             });
             setIsLogged(!isLogged);
             localStorage.setItem('isLogged', !isLogged);
@@ -53,7 +54,6 @@ export const UserContextProvider = ({children})=>{
     useEffect(() =>{
         onAuthStateChanged(auth, userLogged =>{
             setUser(userLogged)
-            console.log(userLogged);
             setLoading(false)
         })
     },[]);

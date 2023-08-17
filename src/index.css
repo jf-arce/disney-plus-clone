@@ -38,11 +38,11 @@ body{
     width: 100%;
     z-index: -3;
 }
-.app-background:after {
+/* .app-background:after {
     content: "";
     position: absolute;
     inset: 0px;
     opacity: 1;
     transition: opacity 500ms ease 0s;
     background: url(/public/assets/img/bg-body.png) 50%/cover no-repeat fixed;
-}
+} */

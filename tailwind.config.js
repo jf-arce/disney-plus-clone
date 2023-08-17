@@ -8,7 +8,8 @@ export default {
     extend: {
       backgroundImage: {
         'body': 'radial-gradient(#06070A,#1E222F)',
-        'bg-inicio': 'url(/public/assets/img/disney-inicio.jpeg)'
+        'bg-inicio': 'url(/public/assets/img/disney-inicio.jpeg)',
+        'bg-mobile':'url(/public/assets/img/disney-hero-mobile.jpeg)'
       }
     },
   },

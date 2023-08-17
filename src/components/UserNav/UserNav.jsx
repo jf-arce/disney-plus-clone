@@ -6,7 +6,7 @@ import { useUserContext } from "../../context/UserContext";
 
 export const UserNav = ({ hoverUser,handleHoverUserMenu }) => {
   const [hoverUserMenu, setHoverUserMenu] = useState(false);
-  const { logOut } = useUserContext(); 
+  const { logOut } = useUserContext();
 
   const handleMouseEnter = () => {
     setHoverUserMenu(true);
@@ -19,7 +19,11 @@ export const UserNav = ({ hoverUser,handleHoverUserMenu }) => {
   const handleLogOut= async ()=>{
     await logOut();
     localStorage.setItem('isLogged', false);
-  }
+  };
+  const handleClickExit = () =>{
+    setHoverUserMenu(false);
+    handleHoverUserMenu(false);
+  };
   
   return (
     <div
@@ -39,16 +43,16 @@ export const UserNav = ({ hoverUser,handleHoverUserMenu }) => {
         </div>
         <ul className={`flex flex-col gap-4 mt-5 text-[15px] `}>
           <li>
-            <Link to="/custom-profile" className="hover:text-[#e8e8e8]">Editar perfiles</Link>
+            <Link to="/custom-profile" onClick={handleClickExit} className="hover:text-[#e8e8e8]">Editar perfiles</Link>
           </li>
           <li>
-            <Link className="hover:text-[#e8e8e8]">Ajustes de la aplicación</Link>
+            <Link className="hover:text-[#e8e8e8]" onClick={handleClickExit}>Ajustes de la aplicación</Link>
           </li>
           <li>
-            <Link className="hover:text-[#e8e8e8]">Cuenta</Link>
+            <Link className="hover:text-[#e8e8e8]" onClick={handleClickExit}>Cuenta</Link>
           </li>
           <li>
-            <Link className="hover:text-[#e8e8e8]">Ayuda</Link>
+            <Link className="hover:text-[#e8e8e8]" onClick={handleClickExit}>Ayuda</Link>
           </li>
           <li>
             <Link className="hover:text-[#e8e8e8]" onClick={handleLogOut} to="/es-ar">Cerrar sesión</Link>

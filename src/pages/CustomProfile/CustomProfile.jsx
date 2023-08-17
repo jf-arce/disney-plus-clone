@@ -19,7 +19,6 @@ export const CustomProfile = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        console.log(newNameRef.current.value,imageUserRef.current.src);
         updateUserProfile(newNameRef.current.value, imageUserRef.current.src);
         setclick(false);
     }
@@ -28,10 +27,10 @@ export const CustomProfile = () => {
     <section className="w-full h-[700px]">
         <div className="max-w-[800px] m-auto p-5 md:mt-52 flex gap-12 justify-center items-center relative flex-wrap">
             <div className="flex flex-col gap-4 flex-1">
-                <h1 className="text-2xl text-white">Editar Perfil</h1>
+                <h1 className="text-2xl text-white text-center md:text-start">Editar Perfil</h1>
                 <form action="" onSubmit={handleSubmit} className="flex flex-col gap-5">
                     <input type='text' ref={newNameRef} name='name' className='text-slate-50 focus:outline-none p-3 bg-[#31343E] rounded-[4px]'placeholder="Nuevo nombre de usuario" required/>
-                    <div className="flex gap-7">
+                    <div className="flex gap-7 justify-center md:justify-start">
                         <button type='submit' className='bg-[#0072d2] hover:bg-[#108cf8] text-[#f9f9f9] w-32 h-12 rounded-[4px] text-[17px] transition-colors duration-300 uppercase'>Listo</button>
                         <Link to="/home" className="bg-[#0072d2] hover:bg-[#108cf8] text-[#f9f9f9] flex justify-center items-center w-32 h-12 rounded-[4px] text-[17px] transition-colors duration-300 uppercase">Cancelar</Link>
                     </div>
@@ -39,21 +38,23 @@ export const CustomProfile = () => {
             </div>
             <div onClick={handleCustomPhoto} className="relative hover:scale-105 transition-all duration-300 animate-fade-down">
                 <picture className="cursor-pointer user-img rounded-full">
-                    <img src={photoUser} ref={imageUserRef} className="rounded-full h-[180px]" alt="" />
+                    <img src={photoUser} ref={imageUserRef} className="rounded-full h-[140px] md:h-[180px]" alt="" />
                     <div className="absolute bottom-0 right-0 bg-slate-50 rounded-full p-2 z-50">
                         <BsFillPencilFill/>
                     </div>
                 </picture>
             </div>
-            <div className={`${click ? "flex" : "hidden"} animate-fade-down duration-75 absolute rounded-md top-96 md:top-60 right-0 bg-[#1a1d29] p-6 justify-center items-center flex-wrap w-full gap-6`}>
-                <PhotoUser url="/assets/img/groot.png" imageUserRef={imageUserRef}/>
-                <PhotoUser url="/assets/img/jackjack.png"imageUserRef={imageUserRef}/>
-                <PhotoUser url="/assets/img/ironman.png" imageUserRef={imageUserRef}/>
-                <PhotoUser url="/assets/img/babyyoda.png" imageUserRef={imageUserRef}/>
-                <PhotoUser url="/assets/img/mandalorian.png" imageUserRef={imageUserRef}/>
-                <PhotoUser url="/assets/img/bu.png" imageUserRef={imageUserRef}/>
-                <PhotoUser url="/assets/img/minnie.png" imageUserRef={imageUserRef}/>
-                <PhotoUser url="/assets/img/sirenita.png" imageUserRef={imageUserRef}/>
+            <div className={`${click ? "flex" : "hidden"} flex-col items-end md:animate-fade-down duration-75 absolute rounded-md top-0 md:top-60 right-0 bg-[#1a1d29] p-6 w-full gap-6`}>
+                <div className="flex justify-center items-center flex-wrap gap-6">
+                    <PhotoUser url="/assets/img/groot.png" imageUserRef={imageUserRef} setclick={setclick}/>
+                    <PhotoUser url="/assets/img/jackjack.png"imageUserRef={imageUserRef} setclick={setclick}/>
+                    <PhotoUser url="/assets/img/ironman.png" imageUserRef={imageUserRef} setclick={setclick}/>
+                    <PhotoUser url="/assets/img/babyyoda.png" imageUserRef={imageUserRef} setclick={setclick}/>
+                    <PhotoUser url="/assets/img/mandalorian.png" imageUserRef={imageUserRef} setclick={setclick}/>
+                    <PhotoUser url="/assets/img/bu.png" imageUserRef={imageUserRef} setclick={setclick}/>
+                    <PhotoUser url="/assets/img/minnie.png" imageUserRef={imageUserRef} setclick={setclick}/>
+                    <PhotoUser url="/assets/img/sirenita.png" imageUserRef={imageUserRef} setclick={setclick}/>
+                </div>
             </div>
         </div>
     </section>
