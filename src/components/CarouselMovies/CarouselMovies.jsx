@@ -1,11 +1,7 @@
 import Slider from "react-slick";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-export const CarouselMovies = ({data,children,title}) => {
-
-  if (data.length == 0) {
-      return <div>Cargando datos...</div>;
-  }
+export const CarouselMovies = ({children,title}) => {
 
   const settings = {
     centerMode: true,
